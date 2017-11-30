@@ -8,6 +8,7 @@ class Plants(models.Model):
 
     name = fields.Char("Plant Name")
     price = fields.Float()
+    description = fields.Text()
 
 
 class Customer(models.Model):
