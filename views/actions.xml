@@ -6,6 +6,12 @@
     <field name="view_mode">tree,form</field>
   </record>
 
+  <record model="ir.actions.act_window" id="action_nursery_customer">
+    <field name="name">Customers</field>
+    <field name="res_model">nursery.customer</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
   <record model="ir.actions.act_window" id="action_nursery_order">
     <field name="name">Orders</field>
     <field name="res_model">nursery.order</field>
@@ -18,6 +24,11 @@
             parent="nursery_root_menu"
             action="action_nursery_plant"
             sequence="1"/>
+
+  <menuitem name="Customers" id="nursery_customer_menu"
+            parent="nursery_root_menu"
+            sequence="2"
+            action="action_nursery_customer"/>
 
   <menuitem name="Orders" id="nursery_order_menu"
             parent="nursery_root_menu"
