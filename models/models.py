@@ -13,6 +13,15 @@ class Plants(models.Model):
 
     order_ids = fields.One2many("nursery.order", "plant_id", string="Orders")
 
+    order_count = fields.Integer(compute='_get_total_sold',
+                                 store=True,
+                                 string='Total sold')
+
+    @api.depends('order_ids')
+    def _get_total_sold(self):
+        for order in self:
+            order.order_count = len(order.order_ids)
+
 
 class Customer(models.Model):
     _name = "nursery.customer"
