@@ -29,7 +29,7 @@ class Plants(models.Model):
             if plant.plant_in_stock and \
                     plant.order_count > plant.plant_in_stock:
                 raise UserError("There is only %s %s in stock but %s were sold"\
-                                % (plant.plant_in_stock, plant.name, plant.order_ount))
+                                % (plant.plant_in_stock, plant.name, plant.order_count))
 
 
 class Customer(models.Model):
