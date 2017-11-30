@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_plant_nursery_plant_nursery,plant_nursery.plant_nursery,model_plant_nursery_plant_nursery,,1,0,0,0
