@@ -16,11 +16,20 @@ class Plants(models.Model):
     order_count = fields.Integer(compute='_get_total_sold',
                                  store=True,
                                  string='Total sold')
+    plant_in_stock = fields.Integer()
 
     @api.depends('order_ids')
     def _get_total_sold(self):
         for order in self:
             order.order_count = len(order.order_ids)
+
+    @api.constrains('order_count', 'plant_in_stock')
+    def _check_available_in_stock(self):
+        for plant in self:
+            if plant.plant_in_stock and \
+                    plant.order_count > plant.plant_in_stock:
+                raise UserError("There is only %s %s in stock but %s were sold"\
+                                % (plant.plant_in_stock, plant.name, plant.order_ount))
 
 
 class Customer(models.Model):
