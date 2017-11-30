@@ -25,3 +25,16 @@ class Orders(models.Model):
 
     plant_id = fields.Many2one("nursery.plant", required=True)
     customer_id = fields.Many2one("nursery.customer", required=True)
+    
+    def write(self, vals):
+        # helper to "YYYY-MM-DD"
+        vals["last_modification"] = fields.Datetime.now()
+        return super(Orders, self).write(vals)
+
+    def unlink(self):
+        # self is a recordset
+        for order in self:
+            if order.state == "confirm":
+                # UserWarning or UserError
+                raise UserWarning("You cannot delete confirmd orders.")
+        return super(Orders, self).unlink()
