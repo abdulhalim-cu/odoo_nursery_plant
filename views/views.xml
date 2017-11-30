@@ -17,10 +17,11 @@
                   <field name="price"/>
                 </group>
               </page>
+              <page string="ORDERS">
+                <field name="order_ids"/>
+              </page>
               <page string="DESCRIPTION">
-                <group>
                   <field name="description"/>
-                </group>
               </page>
             </notebook>
           </sheet>
