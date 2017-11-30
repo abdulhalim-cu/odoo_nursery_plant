@@ -10,6 +10,8 @@ class Plants(models.Model):
     price = fields.Float()
     description = fields.Text()
 
+    order_ids = fields.One2many("nursery.order", "plant_id", string="Orders")
+
 
 class Customer(models.Model):
     _name = "nursery.customer"
