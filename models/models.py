@@ -24,3 +24,4 @@ class Orders(models.Model):
     _name = "nursery.order"
 
     plant_id = fields.Many2one("nursery.plant", required=True)
+    customer_id = fields.Many2one("nursery.customer", required=True)
