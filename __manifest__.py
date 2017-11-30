@@ -9,6 +9,7 @@
     'depends': ['web'],
     'data': [
         # 'security/ir.model.access.csv',
+        'views/actions.xml',
         'views/views.xml',
         'views/templates.xml',
     ],
