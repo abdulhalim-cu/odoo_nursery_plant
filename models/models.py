@@ -16,3 +16,9 @@ class Customer(models.Model):
 
     name = fields.Char("Customer Name", required=True)
     email = fields.Char(help="To received the newsletter")
+
+
+class Orders(models.Model):
+    _name = "nursery.order"
+
+    plant_id = fields.Many2one("nursery.plant", required=True)
